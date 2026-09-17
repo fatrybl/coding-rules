@@ -24,6 +24,15 @@ into the rules above it.
 - No function with deep nesting or many responsibilities. Extract instead.
 - No wrapper that only forwards its arguments to another call. Properties, dunder methods,
   and protocol implementations may be one line.
+- No function defined inside another function. Lift it to module level and pass what it
+  needs as arguments. A closure is justified only where it must capture local state, such
+  as a callback built once per call. A method is not a nested function, even where its
+  class is local to one test.
+- No `return` that hides a decision or a multi-step build: no conditional expression, and
+  nothing assembled out of several intermediate results. Bind it to a named variable and
+  return that name, so the value carries a name the reader and a debugger can both see. A
+  single expression may be returned as it is, whether it is a literal, a name, one call, one
+  comparison, or one comprehension.
 
 ## Typing
 
