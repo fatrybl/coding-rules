@@ -11,7 +11,9 @@ into the rules above it.
 ## Object attributes
 
 - Use snake_case for object attributes. Use a leading underscore for private attributes,
-  and avoid a double leading underscore unless it is necessary.
+  and avoid a double leading underscore unless it is necessary. An attribute holding an
+  SE(3) transformation or an SO(3) rotation, or any widely used math symbol may start with a capital letter, as in
+  `T` or `R`, since that is its natural name.
 - Do not create class or object attributes dynamically. Create object attributes in the
   constructor only.
 
