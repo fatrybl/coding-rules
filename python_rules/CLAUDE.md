@@ -8,6 +8,13 @@ Project-specific facts — how to run the tests, what the packages hold, what mu
 change — belong under a `## Project` heading appended to the end of this file, never mixed
 into the rules above it.
 
+## Object attributes
+
+- Use snake_case for object attributes. Use a leading underscore for private attributes,
+  and avoid a double leading underscore unless it is necessary.
+- Do not create class or object attributes dynamically. Create object attributes in the
+  constructor only.
+
 ## Language and tooling
 
 - Target Python 3.12 or newer. Assume `tomllib`, `@override`, `type` aliases, `X | None`,
