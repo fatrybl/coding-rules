@@ -55,12 +55,20 @@ into the rules above it.
 
 ## Docstrings and comments
 
-- Every module opens with a docstring stating its purpose in one or two sentences.
+- Every module opens with a docstring stating its purpose in one or two sentences. No function names or object name should be hardcoded in docstrings and comments.
 - Every function and dataclass has a compact Google-style docstring. Describe arguments and
   any exception raised. Do not restate types, the annotations already carry them.
 - A module implementing a mathematical operation states the formula in its docstring.
 - Write a comment only where the code cannot explain itself. Never comment what is already
   obvious from the names.
+- Keep a comment to a line or two. Rationale, measurements and history belong in the docs
+  or the commit message, not in the code.
+- A comment or docstring names no other code element: no class, function, module, file,
+  constant, config field, CLI flag or environment variable beyond the arguments and
+  attributes it documents. Describe the role instead; names change, and a comment that
+  quotes one goes stale silently.
+- A comment or docstring quotes no particular number: no measurement, setting or count. A
+  formula and the bounds of the documented value are the exceptions.
 
 ## Organisation
 
