@@ -8,15 +8,6 @@ Project-specific facts — how to run the tests, what the packages hold, what mu
 change — belong under a `## Project` heading appended to the end of this file, never mixed
 into the rules above it.
 
-## Object attributes
-
-- Use snake_case for object attributes. Use a leading underscore for private attributes,
-  and avoid a double leading underscore unless it is necessary. An attribute holding an
-  SE(3) transformation or an SO(3) rotation, or any widely used math symbol may start with a capital letter, as in
-  `T` or `R`, since that is its natural name.
-- Do not create class or object attributes dynamically. Create object attributes in the
-  constructor only.
-
 ## Language and tooling
 
 - Target Python 3.12 or newer. Assume `tomllib`, `@override`, `type` aliases, `X | None`,
@@ -24,6 +15,23 @@ into the rules above it.
 - Prefer a modern idiom when writing new code. Do not rewrite working code just to adopt one.
 - Code must pass black, isort, flake8, and mypy. Run the project's `pre-commit` if it has one.
 - Default line length is 100.
+
+## Architecture
+
+- Keep the architecture concise and modular, easy to change and to extend. Follow the best
+  practices of production-grade Python software design.
+- Take a microservice-like approach: each package and each module is responsible for one
+  task. Any package, module or class can be deleted or replaced without breaking the rest of
+  the project.
+- Classes and functions must be easy to test, without piles of helper or support code, and
+  without monkeypatching or mocks.
+- Choose clear, self-explanatory names.
+- Use snake_case for object attributes. Mark a private attribute with one leading
+  underscore, and use a double leading underscore only where it is necessary. An attribute
+  holding an SE(3) transformation, an SO(3) rotation or another widely used mathematical
+  symbol may start with a capital letter, as in `T` or `R`, since that is its natural name.
+- Do not create class or object attributes dynamically. Create object attributes in the
+  constructor only.
 
 ## Module and function shape
 
